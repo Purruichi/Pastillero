@@ -313,6 +313,16 @@ public class anadir extends javax.swing.JFrame {
                 txtFieldNameFocusLost(evt);
             }
         });
+        txtFieldName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtFieldNameMouseClicked(evt);
+            }
+        });
+        txtFieldName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFieldNameActionPerformed(evt);
+            }
+        });
         pnlGeneralInformation.add(txtFieldName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 550, -1));
 
         txtFieldDose.setFont(new java.awt.Font("PT Mono", 2, 14)); // NOI18N
@@ -554,6 +564,14 @@ public class anadir extends javax.swing.JFrame {
     private void txtFieldFrequencyFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFieldFrequencyFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFieldFrequencyFocusLost
+
+    private void txtFieldNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFieldNameActionPerformed
+
+    private void txtFieldNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFieldNameMouseClicked
+        // TODO add your handling code here:a
+    }//GEN-LAST:event_txtFieldNameMouseClicked
     
     private void setImageLabel(JLabel labelN, String root){
         ImageIcon imagen = new ImageIcon(getClass().getResource(root));
@@ -561,6 +579,7 @@ public class anadir extends javax.swing.JFrame {
         labelN.setIcon(icon);
         this.repaint();
     }
+   
     
     /*public static void main(String args[]) {
         /* Set the Nimbus look and feel */
