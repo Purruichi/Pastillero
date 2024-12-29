@@ -8,6 +8,7 @@ import Cliente.Client;
 import java.awt.*;
 import java.util.*;
 import javax.swing.*;
+import Idioma.GestorIdiomas;
 
 /**
  *
@@ -17,7 +18,7 @@ public class quitar extends javax.swing.JFrame  {
 
     private HashMap<String, String> userData;
     int xMouse,yMouse, selectedRow;
-    
+    private GestorIdiomas gestorIdiomas = GestorIdiomas.getInstance();
     Client cliente;
     
     public quitar(HashMap<String, String> userData, Client cliente) {
@@ -28,8 +29,10 @@ public class quitar extends javax.swing.JFrame  {
         setImageLabel(iconoMyPills, "/small-logo.png");
         setSize(800, 500);
         cargarMedicamentos();
-    
         
+        //Actualiza todos los textos para que cambien de idioma
+        actualizarTextos();
+        gestorIdiomas.registrarObservador(() -> actualizarTextos());
         //Arreglar para que no se cierre toda la app al cerrar la ventana de quitar
     }
     private void cargarMedicamentos() {
@@ -43,6 +46,11 @@ public class quitar extends javax.swing.JFrame  {
         for (HashMap<String, String> med : medicamentos) {
             model.addRow(new Object[]{med.get("name"), med.get("remaining_amount")});*/
         //showMeds();
+    }
+    
+    private void actualizarTextos(){
+        medicamentos.setText(gestorIdiomas.getTexto("medicamentos"));
+        textoAceptar.setText(gestorIdiomas.getTexto("textoAceptar"));
     }
     
    

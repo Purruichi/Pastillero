@@ -9,6 +9,7 @@ import java.awt.*;
 import java.util.*;
 import javax.swing.*;
 import ui.mainWindow.mainWindow;
+import Idioma.GestorIdiomas;
 
 /**
  *
@@ -19,6 +20,7 @@ public class LogIn extends javax.swing.JFrame{
     Client cliente;
     
     int xMouse, yMouse;
+    private GestorIdiomas gestorIdiomas = GestorIdiomas.getInstance();
     
     /**
      * Creates new form LogIn
@@ -38,6 +40,28 @@ public class LogIn extends javax.swing.JFrame{
         setSize(800, 500);
         setLocationRelativeTo(null);
         cliente = new Client();
+        
+        actualizarTextos();
+        GestorIdiomas.getInstance().registrarObservador(() -> actualizarTextos());
+    }
+    
+    private void actualizarTextos(){
+        lblTitleLogIn.setText(gestorIdiomas.getTexto("lblTitleLogIn"));
+        lblForgotPass.setText(gestorIdiomas.getTexto("lblForgotPass"));
+        lblSignUpAccess.setText(gestorIdiomas.getTexto("lblSignUpAccess"));
+        lblTitleSignUp.setText(gestorIdiomas.getTexto("lblTitleSignUp"));
+        lblPassword.setText(gestorIdiomas.getTexto("lblPassword"));
+        lblConfirmPassword.setText(gestorIdiomas.getTexto("lblConfirmPassword"));
+        lblErrorLogIn.setText(gestorIdiomas.getTexto("lblErrorLogIn"));
+        lblErrorSignUp.setText(gestorIdiomas.getTexto("lblErrorSignUp"));
+        labelLogIn.setText(gestorIdiomas.getTexto("labelLogIn"));
+        lblSignUp.setText(gestorIdiomas.getTexto("lblSignUp"));
+        usernameField.setText(gestorIdiomas.getTexto("usernameField"));
+        passField.setText(gestorIdiomas.getTexto("passField"));
+        newEmailField.setText(gestorIdiomas.getTexto("newEmailField"));
+        newUsernameField.setText(gestorIdiomas.getTexto("newUsernameField"));
+        newPassField.setText(gestorIdiomas.getTexto("newPassField"));
+        confirmPassField.setText(gestorIdiomas.getTexto("confirmPassField"));
     }
 
     /**

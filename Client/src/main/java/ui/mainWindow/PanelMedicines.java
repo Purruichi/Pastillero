@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import Idioma.GestorIdiomas;
 
 /**
  *
@@ -17,6 +18,7 @@ public class PanelMedicines extends javax.swing.JPanel {
     
     private Medicine medicine;
     private boolean selected;
+    private GestorIdiomas gestorIdiomas = GestorIdiomas.getInstance();
     
     /**
      * Creates new form PanelMedicines
@@ -24,6 +26,9 @@ public class PanelMedicines extends javax.swing.JPanel {
     public PanelMedicines() {
         initComponents();
         setSize(330, 140);
+        
+        actualizarTextos();
+        gestorIdiomas.registrarObservador(() -> actualizarTextos());
     }
     
     public PanelMedicines(Medicine medicine) {
@@ -44,6 +49,14 @@ public class PanelMedicines extends javax.swing.JPanel {
             }
         });
         reload();
+    }
+    
+    private void actualizarTextos(){
+        lblName.setText(gestorIdiomas.getTexto("lblName"));
+        lblRemainig.setText(gestorIdiomas.getTexto("lblRemainig"));
+        lblDose.setText(gestorIdiomas.getTexto("lblDose"));
+        lblFrequency.setText(gestorIdiomas.getTexto("lblFrequency"));
+        
     }
 
     /**
