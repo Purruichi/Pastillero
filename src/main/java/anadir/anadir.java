@@ -436,7 +436,7 @@ public class anadir extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtFieldNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFieldNameFocusGained
-        if(txtFieldName.getText().equals("Specify the quantity of the medicine")){
+        if(txtFieldName.getText().equals("Specify the name of the medicine")){
             txtFieldName.setText("");
         }
     }//GEN-LAST:event_txtFieldNameFocusGained
@@ -455,7 +455,7 @@ public class anadir extends javax.swing.JFrame {
 
     private void txtFieldDoseFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFieldDoseFocusLost
         if(txtFieldDose.getText().equals("")){
-            txtFieldDose.setText("Specify the name of the medicine");
+            txtFieldDose.setText("Specify the quantity of the medicine");
         }
     }//GEN-LAST:event_txtFieldDoseFocusLost
 
