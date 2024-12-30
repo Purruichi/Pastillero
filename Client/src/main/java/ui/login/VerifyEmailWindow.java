@@ -27,7 +27,7 @@ public class VerifyEmailWindow extends javax.swing.JFrame {
     Customer user;
     
     Client cliente;
-    GestorIdiomas gestorIdiomas = GestorIdiomas.getInstance();
+    private GestorIdiomas gestorIdiomas = GestorIdiomas.getInstance();
     
     /**
      * Creates new form VerifyEmailWindow

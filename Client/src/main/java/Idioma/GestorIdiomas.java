@@ -109,6 +109,8 @@ public class GestorIdiomas {
         textosEspañol.put("jButtonSoporte", "Ayuda y soporte");
         textosEspañol.put("jButtonNotificacion", "Notificaciones");
         textosEspañol.put("jButtonIdioma", "Idioma");
+        textosEspañol.put("lblContact", "Si tiene alguna duda contacte con el número +34 618 89 90 46");
+        
         
         // Textos en inglés
         //CambiarContrasena
@@ -182,6 +184,7 @@ public class GestorIdiomas {
         textosIngles.put("jButtonSoporte", "Help and support");
         textosIngles.put("jButtonNotificacion", "Notifications");
         textosIngles.put("jButtonIdioma", "Language");
+        textosIngles.put("lblContact", "If you have any questions please contact the number +34 618 89 90 46 ");
         
         // Textos en francés
         //CambiarContrasena
@@ -255,6 +258,7 @@ public class GestorIdiomas {
         textosFrances.put("jButtonSoporte", "Aide et support");
         textosFrances.put("jButtonNotificacion", "Notifications");
         textosFrances.put("jButtonIdioma", "Langue");
+        textosFrances.put("lblContact","Si vous avez des questions, veuillez contacter le numéro +34 618 89 90 46.");
 
     }
 
@@ -263,8 +267,7 @@ public class GestorIdiomas {
             textos = textosIngles;
         } else if ("Español".equals(idioma)) {
             textos = textosEspañol;
-        }
-        else if("Français".equals(idioma)){
+        } else if("Français".equals(idioma)){
             textos = textosFrances;
         }
         notificarCambio();

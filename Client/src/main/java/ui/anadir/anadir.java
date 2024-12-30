@@ -28,8 +28,7 @@ public class anadir extends javax.swing.JFrame {
     private boolean isMouseInside = false;
     int xMouse, yMouse;
     private JLabel selectedLabel = null;
-    private GestorIdiomas gestorIdiomas = GestorIdiomas.getInstance();
-    
+    private GestorIdiomas gestorIdiomas = GestorIdiomas.getInstance();  
     public HashMap<String, String> userData = new HashMap<>();
     
     Client cliente;
