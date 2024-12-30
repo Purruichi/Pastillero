@@ -6,22 +6,21 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 
 public class MedicineControlerTest {
-
     private HashMap<String, String> mockMedData;
 
     @BeforeEach
     void setUp() {
         mockMedData = new HashMap<>();
         mockMedData.put("id", "1");
-        mockMedData.put("name", "Aspirin");
+        mockMedData.put("name", "Ibuprofeno");
+        mockMedData.put("advised_dose", "80");
     }
 
     @Test
@@ -34,10 +33,9 @@ public class MedicineControlerTest {
                     .thenReturn(mockResult);
 
             ArrayList<HashMap<String, String>> result = MedicineControler.getUserMeds("1");
-
             assertNotNull(result);
             assertFalse(result.isEmpty());
-            assertEquals("Aspirin", result.get(0).get("name"));
+            assertEquals("Ibuprofeno", result.get(0).get("name"));
         }
     }
 
@@ -51,23 +49,24 @@ public class MedicineControlerTest {
                     .thenReturn(mockResult);
 
             String result = MedicineControler.getMedicineName(1);
-
-            assertEquals("Aspirin", result);
+            assertEquals("Ibuprofeno", result);
         }
     }
 
     @Test
     void testAddMedicine() {
         try (MockedStatic<DatabaseFunctions> mockedStatic = Mockito.mockStatic(DatabaseFunctions.class)) {
-            // Usar doNothing() para métodos void
-            mockedStatic.when(() -> DatabaseFunctions.INSERT("medicines", any()))
-                    .then(invocation -> null); // Esto permite que el método void se ejecute sin error
+            // Usar eq() para el primer parámetro y any() para el segundo
+            mockedStatic.when(() -> DatabaseFunctions.INSERT(eq("medicines"), any(String[].class)))
+                    .then(invocation -> {
+                        return null;
+                    });
 
-            boolean result = MedicineControler.addMedicine("Aspirin");
+            boolean result = MedicineControler.addMedicine("Ibuprofeno");
             assertTrue(result);
 
             // Verificar que el método fue llamado con los parámetros correctos
-            mockedStatic.verify(() -> DatabaseFunctions.INSERT("medicines", any()));
+            mockedStatic.verify(() -> DatabaseFunctions.INSERT(eq("medicines"), any(String[].class)));
         }
     }
 }
