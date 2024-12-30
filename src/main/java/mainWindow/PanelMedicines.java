@@ -32,8 +32,8 @@ public class PanelMedicines extends javax.swing.JPanel {
         reload();
     }
     
-    public PanelMedicines(String name, String dose, int id, int frequency, int remaining) {
-        this.medicine = new Medicine(name, dose, id, frequency, remaining);
+    public PanelMedicines(String name, String dose, int id, int frequency, int remaining, int duration) {
+        this.medicine = new Medicine(name, dose, id, frequency, remaining, duration);
         initComponents();
         setSize(330, 140);
         reload();
@@ -56,6 +56,8 @@ public class PanelMedicines extends javax.swing.JPanel {
         lblDoseMedicine = new javax.swing.JLabel();
         lblFrequency = new javax.swing.JLabel();
         lblFrequencyMedicine = new javax.swing.JLabel();
+        lblDuration = new javax.swing.JLabel();
+        lblDurationMedicine = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 204, 255));
         setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -64,31 +66,38 @@ public class PanelMedicines extends javax.swing.JPanel {
 
         lblName.setFont(new java.awt.Font("PT Mono", 3, 13)); // NOI18N
         lblName.setText("NAME:");
-        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 45, 20));
+        add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 45, 20));
 
         lblNameMedicine.setFont(new java.awt.Font("PT Mono", 0, 13)); // NOI18N
-        add(lblNameMedicine, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 10, 240, 20));
+        add(lblNameMedicine, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 240, 20));
 
         lblRemainig.setFont(new java.awt.Font("PT Mono", 3, 13)); // NOI18N
         lblRemainig.setText("REMAINING:");
-        add(lblRemainig, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 80, 20));
+        add(lblRemainig, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 80, 20));
 
         lblRemainingMedicine.setFont(new java.awt.Font("PT Mono", 0, 13)); // NOI18N
-        add(lblRemainingMedicine, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 200, 20));
+        add(lblRemainingMedicine, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 200, 20));
 
         lblDose.setFont(new java.awt.Font("PT Mono", 3, 13)); // NOI18N
         lblDose.setText("DOSE:");
-        add(lblDose, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 42, 20));
+        add(lblDose, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 42, 20));
 
         lblDoseMedicine.setFont(new java.awt.Font("PT Mono", 0, 13)); // NOI18N
-        add(lblDoseMedicine, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 70, 220, 20));
+        add(lblDoseMedicine, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 220, 20));
 
         lblFrequency.setFont(new java.awt.Font("PT Mono", 3, 13)); // NOI18N
         lblFrequency.setText("FREQUENCY:");
-        add(lblFrequency, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 85, 20));
+        add(lblFrequency, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 85, 20));
 
         lblFrequencyMedicine.setFont(new java.awt.Font("PT Mono", 0, 13)); // NOI18N
-        add(lblFrequencyMedicine, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 100, 190, 20));
+        add(lblFrequencyMedicine, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 190, 20));
+
+        lblDuration.setFont(new java.awt.Font("PT Mono", 3, 13)); // NOI18N
+        lblDuration.setText("DURATION:");
+        add(lblDuration, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 85, 20));
+
+        lblDurationMedicine.setFont(new java.awt.Font("PT Mono", 0, 13)); // NOI18N
+        add(lblDurationMedicine, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 190, 20));
     }// </editor-fold>//GEN-END:initComponents
     
     public void setMedicine(Medicine medicine){
@@ -104,11 +113,14 @@ public class PanelMedicines extends javax.swing.JPanel {
         lblDoseMedicine.setText(medicine.getDose());
         lblFrequencyMedicine.setText(String.valueOf(medicine.getFrequency()));
         lblRemainingMedicine.setText(String.valueOf(medicine.getRemaining()));
+        lblDurationMedicine.setText(String.valueOf(medicine.getDuration()));
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblDose;
     private javax.swing.JLabel lblDoseMedicine;
+    private javax.swing.JLabel lblDuration;
+    private javax.swing.JLabel lblDurationMedicine;
     private javax.swing.JLabel lblFrequency;
     private javax.swing.JLabel lblFrequencyMedicine;
     private javax.swing.JLabel lblName;

@@ -170,6 +170,8 @@ public class mainWindow extends javax.swing.JFrame {
         lblDoseMedicines2 = new javax.swing.JLabel();
         lblFrequency2 = new javax.swing.JLabel();
         lblFrequencyMedicine2 = new javax.swing.JLabel();
+        lblDuration = new javax.swing.JLabel();
+        lblDurationMedicine = new javax.swing.JLabel();
         pnlInfoMedicine = new javax.swing.JPanel();
         lblName = new javax.swing.JLabel();
         lblNameMedicine = new javax.swing.JLabel();
@@ -370,6 +372,11 @@ public class mainWindow extends javax.swing.JFrame {
         NorthPan.add(pnlDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 220, 30));
 
         pnlAjustes.setBackground(new java.awt.Color(51, 153, 255));
+        pnlAjustes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnlAjustesMouseClicked(evt);
+            }
+        });
         pnlAjustes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblAjustes.setBackground(new java.awt.Color(51, 153, 255));
@@ -433,35 +440,43 @@ public class mainWindow extends javax.swing.JFrame {
 
         lblName2.setFont(new java.awt.Font("PT Mono", 3, 13)); // NOI18N
         lblName2.setText("NAME:");
-        pnlInfoMedicine2.add(lblName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 20));
+        pnlInfoMedicine2.add(lblName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 40, 20));
 
         lblNameMedicine2.setFont(new java.awt.Font("PT Mono", 0, 13)); // NOI18N
         lblNameMedicine2.setText("jLabel1");
-        pnlInfoMedicine2.add(lblNameMedicine2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 240, 20));
+        pnlInfoMedicine2.add(lblNameMedicine2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 240, 20));
 
         lblRemainig2.setFont(new java.awt.Font("PT Mono", 3, 13)); // NOI18N
         lblRemainig2.setText("REMAINING:");
-        pnlInfoMedicine2.add(lblRemainig2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 80, 20));
+        pnlInfoMedicine2.add(lblRemainig2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 80, 20));
 
         lblRemainingMedicine2.setFont(new java.awt.Font("PT Mono", 0, 13)); // NOI18N
         lblRemainingMedicine2.setText("jLabel1");
-        pnlInfoMedicine2.add(lblRemainingMedicine2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 200, 20));
+        pnlInfoMedicine2.add(lblRemainingMedicine2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 200, 20));
 
         lblDose2.setFont(new java.awt.Font("PT Mono", 3, 13)); // NOI18N
         lblDose2.setText("DOSE:");
-        pnlInfoMedicine2.add(lblDose2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 40, 20));
+        pnlInfoMedicine2.add(lblDose2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 40, 20));
 
         lblDoseMedicines2.setFont(new java.awt.Font("PT Mono", 0, 13)); // NOI18N
         lblDoseMedicines2.setText("jLabel1");
-        pnlInfoMedicine2.add(lblDoseMedicines2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 240, 20));
+        pnlInfoMedicine2.add(lblDoseMedicines2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 240, 20));
 
         lblFrequency2.setFont(new java.awt.Font("PT Mono", 3, 13)); // NOI18N
         lblFrequency2.setText("FREQUENCY:");
-        pnlInfoMedicine2.add(lblFrequency2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 80, 20));
+        pnlInfoMedicine2.add(lblFrequency2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 80, 20));
 
         lblFrequencyMedicine2.setFont(new java.awt.Font("PT Mono", 0, 13)); // NOI18N
         lblFrequencyMedicine2.setText("jLabel1");
-        pnlInfoMedicine2.add(lblFrequencyMedicine2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 200, 20));
+        pnlInfoMedicine2.add(lblFrequencyMedicine2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 200, 20));
+
+        lblDuration.setFont(new java.awt.Font("PT Mono", 3, 13)); // NOI18N
+        lblDuration.setText("DURATION:");
+        pnlInfoMedicine2.add(lblDuration, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 80, 20));
+
+        lblDurationMedicine.setFont(new java.awt.Font("PT Mono", 0, 13)); // NOI18N
+        lblDurationMedicine.setText("jLabel1");
+        pnlInfoMedicine2.add(lblDurationMedicine, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 200, 20));
 
         pnlMedicines.add(pnlInfoMedicine2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 330, 140));
 
@@ -689,7 +704,7 @@ public class mainWindow extends javax.swing.JFrame {
             session = new HashMap<>();
             session.put("id", Integer.valueOf(med.get("medicine_id")));
             med.put("name", String.valueOf(cliente.sentMessage("/getMedicineName", session).get("name")));
-            pnlMedArray.add(new PanelMedicines(med.get("name"), med.get("dose"), Integer.parseInt(med.get("id")), Integer.parseInt(med.get("frecuency")), Integer.parseInt(med.get("remaining_amount"))));
+            pnlMedArray.add(new PanelMedicines(med.get("name"), med.get("dose"), Integer.parseInt(med.get("id")), Integer.parseInt(med.get("frecuency")), Integer.parseInt(med.get("remaining_amount")), Integer.parseInt(med.get("duration"))));
         }
         System.out.println(userMeds);
         
@@ -791,6 +806,8 @@ public class mainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel lblDose2;
     private javax.swing.JLabel lblDoseMedicines;
     private javax.swing.JLabel lblDoseMedicines2;
+    private javax.swing.JLabel lblDuration;
+    private javax.swing.JLabel lblDurationMedicine;
     private javax.swing.JLabel lblFoto;
     private javax.swing.JLabel lblFrequency;
     private javax.swing.JLabel lblFrequency2;

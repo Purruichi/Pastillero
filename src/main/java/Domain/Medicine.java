@@ -11,18 +11,19 @@ package Domain;
 public class Medicine {
     
     private String name, dose;
-    private int id, frequency, remaining;
+    private int id, frequency, remaining, duration;
     
     public Medicine() {
         
     }
     
-    public Medicine(String name, String dose, int id, int frequency, int remaining) {
+    public Medicine(String name, String dose, int id, int frequency, int remaining, int duration) {
         this.name = name;
         this.dose = dose;
         this.id = id;
         this.frequency = frequency;
         this.remaining = remaining;
+        this.duration = duration;
     }
     
     public String getName(){
@@ -45,6 +46,10 @@ public class Medicine {
         return frequency;
     }
     
+    public int getDuration(){
+        return duration;
+    }
+    
     public void setName(String name){
         this.name = name;
     }
@@ -63,6 +68,10 @@ public class Medicine {
     
     public void setFrequency(int frequency){
         this.frequency = frequency;
+    }
+    
+    public void setDuration(int duration){
+        this.duration = duration;
     }
     
 }
