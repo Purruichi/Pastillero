@@ -11,6 +11,7 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
+import Idioma.GestorIdiomas;
 
 /**
  *
@@ -22,6 +23,7 @@ public class CambiarContrasena extends javax.swing.JFrame {
     
     Customer user;
     Client cliente;
+    private GestorIdiomas gestorIdiomas = GestorIdiomas.getInstance();
     
     /**
      * Creates new form CambiarContrasena
@@ -33,6 +35,18 @@ public class CambiarContrasena extends javax.swing.JFrame {
         this.user = user;
         initComponents();
         setLocationRelativeTo(null);
+        actualizarTextos();
+        
+        gestorIdiomas.registrarObservador(() -> actualizarTextos());
+    }
+    
+    private void actualizarTextos(){
+        lblTitleNewPassword.setText(gestorIdiomas.getTexto("lblTitleNewPassword"));
+        lblPassword.setText(gestorIdiomas.getTexto("lblPassword"));
+        lblConfirm.setText(gestorIdiomas.getTexto("lblConfirm"));
+        labelLogIn.setText(gestorIdiomas.getTexto("labelLogIn"));
+        lblError.setText(gestorIdiomas.getTexto("lblError"));
+        
     }
 
     /**

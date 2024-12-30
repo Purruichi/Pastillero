@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
+import Idioma.GestorIdiomas;
 
 
 /**
@@ -22,12 +23,14 @@ import javax.swing.JOptionPane;
  */
 public class Ajustes extends javax.swing.JFrame {
 
+    private GestorIdiomas gestorIdiomas = GestorIdiomas.getInstance();
     private static HashMap<String, String> userData;
     int xMouse;
     int yMouse;
     boolean notificacion;
     Client cliente;
     boolean deleteCheck=false;
+    
     
     /**
      * Creates new form Ajustes
@@ -41,12 +44,12 @@ public class Ajustes extends javax.swing.JFrame {
         jNumContacto.setVisible(false);
         jManualUso.setVisible(false);
         jComboBoxIdiomas.setVisible(false);
-        //panelManualUso.setVisible(false);
+        lblContact.setVisible(false);
         jDeleteCuenta.setVisible(false);
         setLocationRelativeTo(null);
         this.userData = userData;
         this.cliente = cliente;
-        
+        this.actualizarTextos();
     
     }
     public boolean getNotificacion(){
@@ -57,15 +60,20 @@ public class Ajustes extends javax.swing.JFrame {
     //POR IMPLEMENTAR
     private void cambiarIdioma() {
         String selectedLanguage = (String) jComboBoxIdiomas.getSelectedItem();
-        if ("English".equals(selectedLanguage)) {
-        } else if ("Español".equals(selectedLanguage)) {
-        }
+        gestorIdiomas.cambiarIdioma(selectedLanguage);
+        actualizarTextos();
     }
     
     private void actualizarTextos(){
-
-
-        
+        lblAjustes.setText(gestorIdiomas.getTexto("lblAjustes"));
+        jNotificacionONOFF.setText(gestorIdiomas.getTexto("jNotificacionONOFF"));
+        jNumContacto.setText(gestorIdiomas.getTexto("jNumContacto"));
+        jManualUso.setText(gestorIdiomas.getTexto("jManualUso"));
+        jDeleteCuenta.setText(gestorIdiomas.getTexto("jDeleteCuenta"));
+        lblHelpSupport.setText(gestorIdiomas.getTexto("jButtonSoporte"));
+        lblNotification1.setText(gestorIdiomas.getTexto("jButtonNotificacion"));
+        lblLanguage.setText(gestorIdiomas.getTexto("jButtonIdioma"));
+        lblContact.setText(gestorIdiomas.getTexto("lblContact"));
     }
 
     /**
@@ -88,9 +96,10 @@ public class Ajustes extends javax.swing.JFrame {
         jNumContacto = new javax.swing.JToggleButton();
         jManualUso = new javax.swing.JButton();
         jDeleteCuenta = new javax.swing.JToggleButton();
-        jButtonSoporte = new javax.swing.JButton();
-        jButtonNotificacion = new javax.swing.JButton();
-        jButtonIdioma = new javax.swing.JButton();
+        lblContact = new javax.swing.JLabel();
+        lblHelpSupport = new javax.swing.JLabel();
+        lblNotification1 = new javax.swing.JLabel();
+        lblLanguage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation((Toolkit.getDefaultToolkit().getScreenSize().width - this.getWidth()) / 2, (Toolkit.getDefaultToolkit().getScreenSize().height - this.getHeight()) / 2);
@@ -165,7 +174,7 @@ public class Ajustes extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxIdiomas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Spanish", "English", "French" }));
+        jComboBoxIdiomas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Español", "English", "Français" }));
         jComboBoxIdiomas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jComboBoxIdiomas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,24 +211,32 @@ public class Ajustes extends javax.swing.JFrame {
             }
         });
 
+        lblContact.setForeground(new java.awt.Color(255, 255, 255));
+        lblContact.setText("If you have any questions please contact the number +34 618 89 90 46 ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jNotificacionONOFF, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
-                    .addComponent(jComboBoxIdiomas, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jManualUso, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jNumContacto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jDeleteCuenta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jNotificacionONOFF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBoxIdiomas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jManualUso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jNumContacto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jDeleteCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblContact, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(51, 51, 51))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(143, 143, 143)
+                .addGap(38, 38, 38)
+                .addComponent(lblContact, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
                 .addComponent(jNotificacionONOFF, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(81, 81, 81)
                 .addComponent(jComboBoxIdiomas, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -234,47 +251,35 @@ public class Ajustes extends javax.swing.JFrame {
 
         pnlAjustes.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 510, 500));
 
-        jButtonSoporte.setText("Help and support");
-        jButtonSoporte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonSoporte.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblHelpSupport.setBackground(new java.awt.Color(153, 153, 153));
+        lblHelpSupport.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblHelpSupport.setText("HELP AND SUPPORT");
+        lblHelpSupport.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonSoporteMouseClicked(evt);
             }
         });
-        jButtonSoporte.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSoporteActionPerformed(evt);
-            }
-        });
-        pnlAjustes.add(jButtonSoporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 240, 40));
+        pnlAjustes.add(lblHelpSupport, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 180, 40));
 
-        jButtonNotificacion.setText("Notifications");
-        jButtonNotificacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonNotificacion.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblNotification1.setBackground(new java.awt.Color(153, 153, 153));
+        lblNotification1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblNotification1.setText("NOTIFICATIONS");
+        lblNotification1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonNotificacionMouseClicked(evt);
             }
         });
-        jButtonNotificacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonNotificacionActionPerformed(evt);
-            }
-        });
-        pnlAjustes.add(jButtonNotificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 240, 40));
+        pnlAjustes.add(lblNotification1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 140, 40));
 
-        jButtonIdioma.setText("Language");
-        jButtonIdioma.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonIdioma.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblLanguage.setBackground(new java.awt.Color(153, 153, 153));
+        lblLanguage.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblLanguage.setText("LANGUAGE");
+        lblLanguage.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButtonIdiomaMouseClicked(evt);
             }
         });
-        jButtonIdioma.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonIdiomaActionPerformed(evt);
-            }
-        });
-        pnlAjustes.add(jButtonIdioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 240, 40));
+        pnlAjustes.add(lblLanguage, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 140, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -337,41 +342,48 @@ public class Ajustes extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxIdiomasActionPerformed
 
     private void jNumContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNumContactoActionPerformed
-        
+        if(evt.getSource()==jNumContacto){
+            jNotificacionONOFF.setVisible(false);
+            jComboBoxIdiomas.setVisible(false);
+            jNumContacto.setVisible(false);
+            jManualUso.setVisible(false);
+            jDeleteCuenta.setVisible(false);
+            lblContact.setVisible(true);
+        }
     }//GEN-LAST:event_jNumContactoActionPerformed
 
     private void jButtonNotificacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonNotificacionMouseClicked
         // TODO add your handling code here:
-        if(evt.getSource()==jButtonNotificacion){
+        if(evt.getSource()==lblNotification1){
             jNotificacionONOFF.setVisible(true);
             jComboBoxIdiomas.setVisible(false);
             jNumContacto.setVisible(false);
             jManualUso.setVisible(false);
-            //panelManualUso.setVisible(false);
             jDeleteCuenta.setVisible(false);
+            lblContact.setVisible(false);
         }   
     }//GEN-LAST:event_jButtonNotificacionMouseClicked
 
     private void jButtonSoporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSoporteMouseClicked
         // TODO add your handling code here:
-        if (evt.getSource() == jButtonSoporte) {
+        if (evt.getSource() == lblHelpSupport) {
             jNumContacto.setVisible(true);
             jManualUso.setVisible(true);
             jNotificacionONOFF.setVisible(false);
             jComboBoxIdiomas.setVisible(false);
-            //panelManualUso.setVisible(false);
             jDeleteCuenta.setVisible(true);
+            lblContact.setVisible(false);
         }
     }//GEN-LAST:event_jButtonSoporteMouseClicked
 
     private void jButtonIdiomaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonIdiomaMouseClicked
-        if (evt.getSource() == jButtonIdioma) {
+        if (evt.getSource() == lblLanguage) {
             jNumContacto.setVisible(false);
             jManualUso.setVisible(false);
             jNotificacionONOFF.setVisible(false);
             jComboBoxIdiomas.setVisible(true);
-            //panelManualUso.setVisible(false);
             jDeleteCuenta.setVisible(false);
+            lblContact.setVisible(false);
         }
     }//GEN-LAST:event_jButtonIdiomaMouseClicked
 
@@ -390,6 +402,7 @@ public class Ajustes extends javax.swing.JFrame {
             jNotificacionONOFF.setVisible(false);
             jComboBoxIdiomas.setVisible(false);
             jDeleteCuenta.setVisible(false);
+            lblContact.setVisible(false);
 
             try {
                 InputStream pdfStream = getClass().getResourceAsStream("/resources/UserManual.pdf");
@@ -432,6 +445,7 @@ public class Ajustes extends javax.swing.JFrame {
         jManualUso.setVisible(false);
         jNotificacionONOFF.setVisible(false);
         jComboBoxIdiomas.setVisible(false);
+        lblContact.setVisible(false);
         jDeleteCuenta.setVisible(true);
         HashMap <String, Object> session = new HashMap<>();
         session.put("id", userData.get("id"));
@@ -444,9 +458,6 @@ public class Ajustes extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonIdioma;
-    private javax.swing.JButton jButtonNotificacion;
-    private javax.swing.JButton jButtonSoporte;
     private javax.swing.JComboBox<String> jComboBoxIdiomas;
     private javax.swing.JToggleButton jDeleteCuenta;
     private javax.swing.JButton jManualUso;
@@ -454,7 +465,11 @@ public class Ajustes extends javax.swing.JFrame {
     private javax.swing.JToggleButton jNumContacto;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAjustes;
+    private javax.swing.JLabel lblContact;
+    private javax.swing.JLabel lblHelpSupport;
+    private javax.swing.JLabel lblLanguage;
     private javax.swing.JLabel lblMyPills;
+    private javax.swing.JLabel lblNotification1;
     private javax.swing.JLabel lblX;
     private javax.swing.JPanel pnlAjustes;
     private javax.swing.JPanel titleBar;

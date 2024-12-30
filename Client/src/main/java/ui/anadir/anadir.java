@@ -17,6 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
+import Idioma.GestorIdiomas;
 
 /**
  *
@@ -27,8 +28,7 @@ public class anadir extends javax.swing.JFrame {
     private boolean isMouseInside = false;
     int xMouse, yMouse;
     private JLabel selectedLabel = null;
-
-    
+    private GestorIdiomas gestorIdiomas = GestorIdiomas.getInstance();  
     public HashMap<String, String> userData = new HashMap<>();
     
     Client cliente;
@@ -58,6 +58,9 @@ public class anadir extends javax.swing.JFrame {
         configurarListeners();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
+        actualizarTextos();
+        gestorIdiomas.registrarObservador(() -> actualizarTextos());
     }
     
     /*public anadir(){
@@ -68,6 +71,8 @@ public class anadir extends javax.swing.JFrame {
         
         
     }*/
+    
+  
     private void configurarListeners() {
         // MouseListener compartido
         MouseAdapter mouseAdapter = new MouseAdapter() {
@@ -137,6 +142,18 @@ public class anadir extends javax.swing.JFrame {
     selectedLabel.setBackground(new Color(51,153,255));
     selectedLabel.setOpaque(true);
 }
+    
+    private void actualizarTextos(){
+        lblType.setText(gestorIdiomas.getTexto("lblType"));
+        txtFieldName.setText(gestorIdiomas.getTexto("txtFieldName"));
+        txtFieldDose.setText(gestorIdiomas.getTexto("txtFieldDose"));
+        jLabel1.setText(gestorIdiomas.getTexto("jLabel1"));
+        txtFieldFrequency.setText(gestorIdiomas.getTexto("txtFieldFrequency"));
+        txtFieldRemaining.setText(gestorIdiomas.getTexto("txtFieldRemaining"));
+        lblTimeline.setText(gestorIdiomas.getTexto("lblTimeline"));
+        btnAnadir.setText(gestorIdiomas.getTexto("btnAnadir"));
+        btnCancelar.setText(gestorIdiomas.getTexto("btnCancelar"));
+    }
 
 
     /**

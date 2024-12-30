@@ -14,6 +14,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import java.awt.Toolkit;
+import Idioma.GestorIdiomas;
 
 /**
  *
@@ -26,6 +27,7 @@ public class VerifyEmailWindow extends javax.swing.JFrame {
     Customer user;
     
     Client cliente;
+    private GestorIdiomas gestorIdiomas = GestorIdiomas.getInstance();
     
     /**
      * Creates new form VerifyEmailWindow
@@ -38,6 +40,19 @@ public class VerifyEmailWindow extends javax.swing.JFrame {
         setImageLabel(lblMaximizar, "/Maximizar.png");
         setImageLabel(lblMinimizar, "/Guion.png");
         this.cliente=cliente;
+        
+        actualizarTextos();
+        gestorIdiomas.registrarObservador(() -> actualizarTextos());
+        
+    }
+    
+    private void actualizarTextos(){
+        lblEmail.setText(gestorIdiomas.getTexto("lblEmail"));
+        lblSend.setText(gestorIdiomas.getTexto("lblSend"));
+        lblConfirm.setText(gestorIdiomas.getTexto("lblConfirm"));
+        lblCode.setText(gestorIdiomas.getTexto("lblCode"));
+        txtFieldEmail.setText(gestorIdiomas.getTexto("txtFieldEmail"));
+        txtFieldCode.setText(gestorIdiomas.getTexto("txtFieldCode"));
     }
 
     /**

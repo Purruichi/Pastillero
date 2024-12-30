@@ -14,6 +14,7 @@ import ui.quitar.quitar;
 import ui.Ajustes.Ajustes;
 import java.awt.event.MouseEvent;
 import ui.login.LogIn;
+import Idioma.GestorIdiomas;
 
 /**
  *
@@ -30,6 +31,8 @@ public class mainWindow extends javax.swing.JFrame {
     private ArrayList<PanelMedicines> pnlMedArray = new ArrayList<>();
     
     Client cliente;
+    
+    private GestorIdiomas gestorIdiomas = GestorIdiomas.getInstance();
     
     public HashMap<String, String> userData = new HashMap<>();
     public ArrayList<HashMap<String, String>> userMeds = new ArrayList<>();
@@ -63,6 +66,25 @@ public class mainWindow extends javax.swing.JFrame {
         pnlInfoMedicine1.setOpaque(true);
         //configurarListeners();
         showMeds();
+        
+        actualizarTextos();
+        gestorIdiomas.registrarObservador(() -> actualizarTextos());
+    }
+    
+    private void actualizarTextos(){
+        lblName.setText(gestorIdiomas.getTexto("lblName"));
+        lblRemainig.setText(gestorIdiomas.getTexto("lblRemainig"));
+        lblDose.setText(gestorIdiomas.getTexto("lblDose"));
+        lblFrequency.setText(gestorIdiomas.getTexto("lblFrequency"));
+        lblName2.setText(gestorIdiomas.getTexto("lblName2"));
+        lblRemainig2.setText(gestorIdiomas.getTexto("lblRemainig2"));
+        lblDose2.setText(gestorIdiomas.getTexto("lblDose2"));
+        lblFrequency2.setText(gestorIdiomas.getTexto("lblFrequency2"));
+        datename.setText(gestorIdiomas.getTexto("datename"));
+        date.setText(gestorIdiomas.getTexto("date"));
+        lblAjustes.setText(gestorIdiomas.getTexto("lblAjustes"));
+        lblAdd.setText(gestorIdiomas.getTexto("lblAdd"));
+        lblRemove.setText(gestorIdiomas.getTexto("lblRemove"));
     }
     
     /*private void configurarListeners() {
