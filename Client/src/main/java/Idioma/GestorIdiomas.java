@@ -14,7 +14,7 @@ import java.util.List;
 public class GestorIdiomas {
     private static GestorIdiomas instancia;
     private HashMap<String, String> textos;
-    private HashMap<String, String> textosEspañol;
+    private HashMap<String, String> textosEspaniol;
     private HashMap<String, String> textosIngles;
     private HashMap<String, String> textosFrances;
     private List<Runnable> observadores;
@@ -33,85 +33,84 @@ public class GestorIdiomas {
     }
 
     private void inicializarTextos() {
-        textosEspañol = new HashMap<>();
+        textosEspaniol = new HashMap<>();
         textosIngles = new HashMap<>();
         textosFrances = new HashMap<>();
 
-        // Textos en español
+        // Textos en espaniol
         //CambiarContrasena
-        textosEspañol.put("lblTitleNewPassword", "Nueva Contraseña");
-        textosEspañol.put("lblPassword", "Contraseña:");
-        textosEspañol.put("lblConfirm", "Confirmar Contraseña:");
-        textosEspañol.put("labelLogIn", "Iniciar Sesión");
-        textosEspañol.put("lblError", "Ambas contraseñas no coinciden.");
+        textosEspaniol.put("lblTitleNewPassword", "Nueva Contrasena");
+        textosEspaniol.put("lblPassword", "Contrasena:");
+        textosEspaniol.put("lblConfirm", "Confirmar Contrasena:");
+        textosEspaniol.put("labelLogIn", "Iniciar Sesion");
+        textosEspaniol.put("lblError", "Ambas contraseñas no coinciden.");
         //LogIn
-        textosEspañol.put("lblTitleLogIn", "Iniciar Sesión");
-        textosEspañol.put("lblForgotPass", "¿Olvidaste tu contraseña?");
-        textosEspañol.put("lblSignUpAccess", "¿No tienes una cuenta? Regístrate aquí");
-        textosEspañol.put("lblTitleSignUp", "Registro");
-        textosEspañol.put("lblPassword", "Contraseña:");
-        textosEspañol.put("lblConfirmPassword", "Confirmar Contraseña:");
-        textosEspañol.put("lblErrorLogIn", "El usuario o la contraseña son incorrectos");
-        textosEspañol.put("lblErrorSignUp", "Ambas contraseñas no coinciden");
-        textosEspañol.put("labelLogIn", "Iniciar Sesión");
-        textosEspañol.put("lblSignUp", "Registrarse");
-        textosEspañol.put("usernameField", "Nombre de usuario");
-        textosEspañol.put("passField", "Contraseña");
-        textosEspañol.put("newEmailField", "Correo Electrónico");
-        textosEspañol.put("newUsernameField", "Nombre de Usuario");
-        textosEspañol.put("newPassField", "Contraseña");
-        textosEspañol.put("confirmPassField", "Contraseña");        
+        textosEspaniol.put("lblTitleLogIn", "Iniciar Sesion");
+        textosEspaniol.put("lblForgotPass", "¿Olvidaste tu contrasena?");
+        textosEspaniol.put("lblSignUpAccess", "¿No tienes una cuenta? Registrate aqui");
+        textosEspaniol.put("lblTitleSignUp", "Registro");
+        textosEspaniol.put("lblPassword", "Contrasena:");
+        textosEspaniol.put("lblConfirmPassword", "Confirmar Contrasena:");
+        textosEspaniol.put("lblErrorLogIn", "El usuario o la contrasena son incorrectos");
+        textosEspaniol.put("lblErrorSignUp", "Ambas contrasenas no coinciden");
+        textosEspaniol.put("labelLogIn", "Iniciar Sesion");
+        textosEspaniol.put("lblSignUp", "Registrarse");
+        textosEspaniol.put("usernameField", "Nombre de usuario");
+        textosEspaniol.put("passField", "Contrasena");
+        textosEspaniol.put("newEmailField", "Correo Electronico");
+        textosEspaniol.put("newUsernameField", "Nombre de Usuario");
+        textosEspaniol.put("newPassField", "Contrasena");
+        textosEspaniol.put("confirmPassField", "Contrasena");
         //VerifyEmailWindow
-        textosEspañol.put("lblEmail", "Introduce tu correo electrónico:");
-        textosEspañol.put("lblSend", "Enviar Código");
-        textosEspañol.put("lblCode", "Introduce el código de verificación:");
-        textosEspañol.put("lblConfirm", "Confirmar");
-        textosEspañol.put("txtFieldEmail", "Correo Electrónico");
-        textosEspañol.put("txtFieldCode", "Código de Verificación");        
+        textosEspaniol.put("lblEmail", "Introduce tu correo electronico:");
+        textosEspaniol.put("lblSend", "Enviar Codigo");
+        textosEspaniol.put("lblCode", "Introduce el código de verificacion:");
+        textosEspaniol.put("lblConfirm", "Confirmar");
+        textosEspaniol.put("txtFieldEmail", "Correo Electronico");
+        textosEspaniol.put("txtFieldCode", "Código de Verificacion");
         //anadir
-        textosEspañol.put("lblType", "TIPO");
-        textosEspañol.put("txtFieldName", "Nombre");
-        textosEspañol.put("txtFieldDose", "Dosis");
-        textosEspañol.put("jLabel1", "INFORMACIÓN GENERAL");
-        textosEspañol.put("txtFieldFrequency", "Frecuencia");
-        textosEspañol.put("txtFieldRemaining", "Cantidad restante");
-        textosEspañol.put("lblTimeline", "LÍNEA DE TIEMPO Y HORARIO");
-        textosEspañol.put("btnAnadir", "Aceptar");
-        textosEspañol.put("btnCancelar", "Cancelar");        
+        textosEspaniol.put("lblType", "TIPO");
+        textosEspaniol.put("txtFieldName", "Nombre");
+        textosEspaniol.put("txtFieldDose", "Dosis");
+        textosEspaniol.put("jLabel1", "INFORMACION GENERAL");
+        textosEspaniol.put("txtFieldFrequency", "Frecuencia");
+        textosEspaniol.put("txtFieldRemaining", "Cantidad restante");
+        textosEspaniol.put("lblTimeline", "LINEA DE TIEMPO Y HORARIO");
+        textosEspaniol.put("btnAnadir", "Aceptar");
+        textosEspaniol.put("btnCancelar", "Cancelar");
         //quitar
-        textosEspañol.put("medicamentos", "ELIMINAR MEDICINAS:");
-        textosEspañol.put("textoAceptar", "CONFIRMAR ELIMINACIÓN");        
+        textosEspaniol.put("medicamentos", "ELIMINAR MEDICINAS:");
+        textosEspaniol.put("textoAceptar", "CONFIRMAR ELIMINACION");
         //mainWindow
-        textosEspañol.put("lblName", "NOMBRE:");
-        textosEspañol.put("lblRemainig", "CANTIDAD RESTANTE:");
-        textosEspañol.put("lblDose", "DOSIS:");
-        textosEspañol.put("lblFrequency", "FRECUENCIA:");
-        textosEspañol.put("lblName2", "NOMBRE:");
-        textosEspañol.put("lblRemainig2", "CANTIDAD RESTANTE:");
-        textosEspañol.put("lblDose2", "DOSIS:");
-        textosEspañol.put("lblFrequency2", "FRECUENCIA:");
-        textosEspañol.put("datename", "Fecha:");
-        textosEspañol.put("date", "Fecha actual");
-        textosEspañol.put("lblAjustes", "Ajustes");
-        textosEspañol.put("lblAdd", "Añadir");
-        textosEspañol.put("lblRemove", "Eliminar");        
+        textosEspaniol.put("lblName", "NOMBRE:");
+        textosEspaniol.put("lblRemainig", "CANTIDAD RESTANTE:");
+        textosEspaniol.put("lblDose", "DOSIS:");
+        textosEspaniol.put("lblFrequency", "FRECUENCIA:");
+        textosEspaniol.put("lblName2", "NOMBRE:");
+        textosEspaniol.put("lblRemainig2", "CANTIDAD RESTANTE:");
+        textosEspaniol.put("lblDose2", "DOSIS:");
+        textosEspaniol.put("lblFrequency2", "FRECUENCIA:");
+        textosEspaniol.put("datename", "Fecha:");
+        textosEspaniol.put("date", "Fecha actual");
+        textosEspaniol.put("lblAjustes", "Ajustes");
+        textosEspaniol.put("lblAdd", "Añadir");
+        textosEspaniol.put("lblRemove", "Eliminar");
         //PanelMedicines
-        textosEspañol.put("lblName", "NOMBRE:");
-        textosEspañol.put("lblRemainig", "CANTIDAD RESTANTE:");
-        textosEspañol.put("lblDose", "DOSIS:");
-        textosEspañol.put("lblFrequency", "FRECUENCIA:");        
+        textosEspaniol.put("lblName", "NOMBRE:");
+        textosEspaniol.put("lblRemainig", "CANTIDAD RESTANTE:");
+        textosEspaniol.put("lblDose", "DOSIS:");
+        textosEspaniol.put("lblFrequency", "FRECUENCIA:");
         //Ajustes
-        textosEspañol.put("lblAjustes", "Configuraciones");
-        textosEspañol.put("jNotificacionONOFF", "Notificaciones DESACTIVADAS");
-        textosEspañol.put("jNumContacto", "Número de contacto");
-        textosEspañol.put("jManualUso", "Manual de la App");
-        textosEspañol.put("jDeleteCuenta", "Eliminar tu cuenta");
-        textosEspañol.put("jButtonSoporte", "Ayuda y soporte");
-        textosEspañol.put("jButtonNotificacion", "Notificaciones");
-        textosEspañol.put("jButtonIdioma", "Idioma");
-        textosEspañol.put("lblContact", "Si tiene alguna duda contacte con el número +34 618 89 90 46");
-        
-        
+        textosEspaniol.put("lblAjustes", "Configuraciones");
+        textosEspaniol.put("jNotificacionONOFF", "Notificaciones DESACTIVADAS");
+        textosEspaniol.put("jNumContacto", "Numero de contacto");
+        textosEspaniol.put("jManualUso", "Manual de la App");
+        textosEspaniol.put("jDeleteCuenta", "Eliminar tu cuenta");
+        textosEspaniol.put("jButtonSoporte", "Ayuda y soporte");
+        textosEspaniol.put("jButtonNotificacion", "Notificaciones");
+        textosEspaniol.put("jButtonIdioma", "Idioma");
+        textosEspaniol.put("lblContact", "Si tiene alguna duda contacte con el numero +34 618 89 90 46");
+
         // Textos en inglés
         //CambiarContrasena
         textosIngles.put("lblTitleNewPassword", "New Password");
@@ -195,7 +194,7 @@ public class GestorIdiomas {
         textosFrances.put("lblError", "Les deux mots de passe ne correspondent pas.");
         //LogIn
         textosFrances.put("lblTitleLogIn", "Se connecter");
-        textosFrances.put("lblForgotPass", "Mot de passe oublié ?");
+        textosFrances.put("lblForgotPass", "Mot de passe oublie ?");
         textosFrances.put("lblSignUpAccess", "Vous n'avez pas de compte ? Inscrivez-vous ici");
         textosFrances.put("lblTitleSignUp", "Inscription");
         textosFrances.put("lblPassword", "Mot de passe :");
@@ -213,52 +212,52 @@ public class GestorIdiomas {
         //VerifyEmailWindow
         textosFrances.put("lblEmail", "Entrez votre adresse e-mail :");
         textosFrances.put("lblSend", "Envoyer le code");
-        textosFrances.put("lblCode", "Entrez le code de vérification :");
+        textosFrances.put("lblCode", "Entrez le code de verification :");
         textosFrances.put("lblConfirm", "Confirmer");
         textosFrances.put("txtFieldEmail", "Adresse e-mail");
-        textosFrances.put("txtFieldCode", "Code de vérification");
+        textosFrances.put("txtFieldCode", "Code de vrrification");
         //anadir
         textosFrances.put("lblType", "TYPE");
         textosFrances.put("txtFieldName", "Nom");
         textosFrances.put("txtFieldDose", "Dose");
-        textosFrances.put("jLabel1", "INFORMATIONS GÉNÉRALES");
-        textosFrances.put("txtFieldFrequency", "Fréquence");
-        textosFrances.put("txtFieldRemaining", "Quantité restante");
+        textosFrances.put("jLabel1", "INFORMATIONS GENERALES");
+        textosFrances.put("txtFieldFrequency", "Frequence");
+        textosFrances.put("txtFieldRemaining", "Quantite restante");
         textosFrances.put("lblTimeline", "CHRONOLOGIE ET HORAIRE");
         textosFrances.put("btnAnadir", "Accepter");
         textosFrances.put("btnCancelar", "Annuler");
         //quitar
-        textosFrances.put("medicamentos", "SUPPRIMER MÉDICAMENTS :");
+        textosFrances.put("medicamentos", "SUPPRIMER MEDICAMENTS :");
         textosFrances.put("textoAceptar", "CONFIRMER LA SUPPRESSION");
         //mainWindow
         textosFrances.put("lblName", "NOM :");
-        textosFrances.put("lblRemainig", "QUANTITÉ RESTANTE :");
+        textosFrances.put("lblRemainig", "QUANTITE RESTANTE :");
         textosFrances.put("lblDose", "DOSE :");
-        textosFrances.put("lblFrequency", "FRÉQUENCE :");
+        textosFrances.put("lblFrequency", "FREQUENCE :");
         textosFrances.put("lblName2", "NOM :");
-        textosFrances.put("lblRemainig2", "QUANTITÉ RESTANTE :");
+        textosFrances.put("lblRemainig2", "QUANTITE RESTANTE :");
         textosFrances.put("lblDose2", "DOSE :");
-        textosFrances.put("lblFrequency2", "FRÉQUENCE :");
+        textosFrances.put("lblFrequency2", "FREQUENCE :");
         textosFrances.put("datename", "Date :");
         textosFrances.put("date", "Date actuelle");
-        textosFrances.put("lblAjustes", "Paramètres");
+        textosFrances.put("lblAjustes", "Parametres");
         textosFrances.put("lblAdd", "Ajouter");
         textosFrances.put("lblRemove", "Supprimer");
         //PanelMedicines
         textosFrances.put("lblName", "NOM :");
-        textosFrances.put("lblRemainig", "QUANTITÉ RESTANTE :");
+        textosFrances.put("lblRemainig", "QUANTITE RESTANTE :");
         textosFrances.put("lblDose", "DOSE :");
         textosFrances.put("lblFrequency", "FRÉQUENCE :");
         //Ajustes
         textosFrances.put("lblAjustes", "Configurations");
-        textosFrances.put("jNotificacionONOFF", "Notifications DÉSACTIVÉES");
-        textosFrances.put("jNumContacto", "Numéro de contact");
+        textosFrances.put("jNotificacionONOFF", "Notifications DESACTIVEES");
+        textosFrances.put("jNumContacto", "Numero de contact");
         textosFrances.put("jManualUso", "Manuel de l'application");
         textosFrances.put("jDeleteCuenta", "Supprimer votre compte");
         textosFrances.put("jButtonSoporte", "Aide et support");
         textosFrances.put("jButtonNotificacion", "Notifications");
         textosFrances.put("jButtonIdioma", "Langue");
-        textosFrances.put("lblContact","Si vous avez des questions, veuillez contacter le numéro +34 618 89 90 46.");
+        textosFrances.put("lblContact","Si vous avez des questions, veuillez contacter le numero +34 618 89 90 46.");
 
     }
 
@@ -266,7 +265,7 @@ public class GestorIdiomas {
         if ("English".equals(idioma)) {
             textos = textosIngles;
         } else if ("Español".equals(idioma)) {
-            textos = textosEspañol;
+            textos = textosEspaniol;
         } else if("Français".equals(idioma)){
             textos = textosFrances;
         }
