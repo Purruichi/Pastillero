@@ -18,6 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 import Idioma.GestorIdiomas;
+import ui.Notificaciones;
 
 /**
  *
@@ -30,6 +31,7 @@ public class anadir extends javax.swing.JFrame {
     private JLabel selectedLabel = null;
     private GestorIdiomas gestorIdiomas = GestorIdiomas.getInstance();  
     public HashMap<String, String> userData = new HashMap<>();
+    private Notificaciones notificaciones;
     
     Client cliente;
     
@@ -150,6 +152,7 @@ public class anadir extends javax.swing.JFrame {
         jLabel1.setText(gestorIdiomas.getTexto("jLabel1"));
         txtFieldFrequency.setText(gestorIdiomas.getTexto("txtFieldFrequency"));
         txtFieldRemaining.setText(gestorIdiomas.getTexto("txtFieldRemaining"));
+        txtFieldDuration.setText(gestorIdiomas.getTexto("txtFieldDuration"));
         lblTimeline.setText(gestorIdiomas.getTexto("lblTimeline"));
         btnAnadir.setText(gestorIdiomas.getTexto("btnAnadir"));
         btnCancelar.setText(gestorIdiomas.getTexto("btnCancelar"));
@@ -488,7 +491,7 @@ public class anadir extends javax.swing.JFrame {
     }//GEN-LAST:event_txtFieldDoseFocusLost
 
     private void btnAnadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnadirMouseClicked
-        String[] values = new String[6];
+        String[] values = new String[7];
         HashMap<String, Object> session = new HashMap<>();
         values[0] = userData.get("id");
         
@@ -501,6 +504,39 @@ public class anadir extends javax.swing.JFrame {
         session.put("values", values);
         
         cliente.sentMessage("/addUserMed", session);
+        
+        if (values[3] != null && !values[3].isEmpty()) {
+            try {
+                long frecuenciaEnHoras = Long.parseLong(values[3]);
+                if (frecuenciaEnHoras != 0) {
+                    // Crear y comenzar las notificaciones
+                    if (notificaciones != null) {
+                        notificaciones.detener();
+                    }
+                    notificaciones = new Notificaciones(frecuenciaEnHoras);
+                    notificaciones.iniciar();
+                } else {
+                    // Frecuencia es 0, cancelar cualquier notificación en curso
+                    System.out.println("La frecuencia proporcionada es 0, se cancela cualquier notificación.");
+                    if (notificaciones != null) {
+                        notificaciones.detener();
+                    }
+                }
+            } catch (NumberFormatException e) {
+                // Manejar el caso en que values[3] no sea un número válido
+                System.out.println("La frecuencia ingresada no es válida.");
+                if (notificaciones != null) {
+                    notificaciones.detener();
+                }
+            }
+        } else {
+            // values[3] es null o está vacío, cancelar cualquier notificación en curso
+            System.out.println("Frecuencia no proporcionada, se cancela cualquier notificación.");
+            if (notificaciones != null) {
+                notificaciones.detener();
+            }
+        }
+        
         dispose();
         
         /*boolean check = (boolean)cliente.sentMessage("/addUserMed", session).get("check");

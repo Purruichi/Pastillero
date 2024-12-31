@@ -56,6 +56,7 @@ public class PanelMedicines extends javax.swing.JPanel {
         lblRemainig.setText(gestorIdiomas.getTexto("lblRemainig"));
         lblDose.setText(gestorIdiomas.getTexto("lblDose"));
         lblFrequency.setText(gestorIdiomas.getTexto("lblFrequency"));
+        lblDuration.setText(gestorIdiomas.getTexto("lblDuration"));
         
     }
 

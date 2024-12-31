@@ -80,6 +80,7 @@ public class mainWindow extends javax.swing.JFrame {
         lblRemainig2.setText(gestorIdiomas.getTexto("lblRemainig2"));
         lblDose2.setText(gestorIdiomas.getTexto("lblDose2"));
         lblFrequency2.setText(gestorIdiomas.getTexto("lblFrequency2"));
+        lblDuration.setText(gestorIdiomas.getTexto("lblDuration"));
         datename.setText(gestorIdiomas.getTexto("datename"));
         date.setText(gestorIdiomas.getTexto("date"));
         lblAjustes.setText(gestorIdiomas.getTexto("lblAjustes"));

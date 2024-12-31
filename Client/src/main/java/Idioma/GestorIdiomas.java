@@ -75,6 +75,7 @@ public class GestorIdiomas {
         textosEspaniol.put("jLabel1", "INFORMACION GENERAL");
         textosEspaniol.put("txtFieldFrequency", "Frecuencia");
         textosEspaniol.put("txtFieldRemaining", "Cantidad restante");
+        textosEspaniol.put("txtFieldDuration", "Duración");
         textosEspaniol.put("lblTimeline", "LINEA DE TIEMPO Y HORARIO");
         textosEspaniol.put("btnAnadir", "Aceptar");
         textosEspaniol.put("btnCancelar", "Cancelar");
@@ -86,6 +87,7 @@ public class GestorIdiomas {
         textosEspaniol.put("lblRemainig", "CANTIDAD RESTANTE:");
         textosEspaniol.put("lblDose", "DOSIS:");
         textosEspaniol.put("lblFrequency", "FRECUENCIA:");
+        textosEspaniol.put("lblDuration", "DURACIÓN:");
         textosEspaniol.put("lblName2", "NOMBRE:");
         textosEspaniol.put("lblRemainig2", "CANTIDAD RESTANTE:");
         textosEspaniol.put("lblDose2", "DOSIS:");
@@ -100,6 +102,7 @@ public class GestorIdiomas {
         textosEspaniol.put("lblRemainig", "CANTIDAD RESTANTE:");
         textosEspaniol.put("lblDose", "DOSIS:");
         textosEspaniol.put("lblFrequency", "FRECUENCIA:");
+        textosEspaniol.put("lblDuration", "DURACIÓN:");
         //Ajustes
         textosEspaniol.put("lblAjustes", "Configuraciones");
         textosEspaniol.put("jNotificacionONOFF", "Notificaciones DESACTIVADAS");
@@ -149,6 +152,7 @@ public class GestorIdiomas {
         textosIngles.put("jLabel1", "GENERAL INFORMATION");
         textosIngles.put("txtFieldFrequency", "Frequency");
         textosIngles.put("txtFieldRemaining", "Remaining amount");
+        textosIngles.put("txtFieldDuration", "Duration");
         textosIngles.put("lblTimeline", "TIMELINE & SCHEDULE");
         textosIngles.put("btnAnadir", "OK");
         textosIngles.put("btnCancelar", "CANCEL");
@@ -164,6 +168,7 @@ public class GestorIdiomas {
         textosIngles.put("lblRemainig2", "REMAINING:");
         textosIngles.put("lblDose2", "DOSE:");
         textosIngles.put("lblFrequency2", "FREQUENCY:");
+        textosIngles.put("lblDuration", "DURATION:");
         textosIngles.put("datename", "Date:");
         textosIngles.put("date", "Current Date");
         textosIngles.put("lblAjustes", "Settings");
@@ -174,6 +179,7 @@ public class GestorIdiomas {
         textosIngles.put("lblRemainig", "REMAINING:");
         textosIngles.put("lblDose", "DOSE:");
         textosIngles.put("lblFrequency", "FREQUENCY:");
+        textosIngles.put("lblDuration", "DURATION:");
         //Ajustes
         textosIngles.put("lblAjustes", "Settings");
         textosIngles.put("jNotificacionONOFF", "Notifications OFF");
@@ -223,6 +229,7 @@ public class GestorIdiomas {
         textosFrances.put("jLabel1", "INFORMATIONS GENERALES");
         textosFrances.put("txtFieldFrequency", "Frequence");
         textosFrances.put("txtFieldRemaining", "Quantite restante");
+        textosFrances.put("txtFieldDuration", "Durée");
         textosFrances.put("lblTimeline", "CHRONOLOGIE ET HORAIRE");
         textosFrances.put("btnAnadir", "Accepter");
         textosFrances.put("btnCancelar", "Annuler");
@@ -238,6 +245,7 @@ public class GestorIdiomas {
         textosFrances.put("lblRemainig2", "QUANTITE RESTANTE :");
         textosFrances.put("lblDose2", "DOSE :");
         textosFrances.put("lblFrequency2", "FREQUENCE :");
+        textosFrances.put("lblDuration", "DURÉE :");
         textosFrances.put("datename", "Date :");
         textosFrances.put("date", "Date actuelle");
         textosFrances.put("lblAjustes", "Parametres");
@@ -248,6 +256,7 @@ public class GestorIdiomas {
         textosFrances.put("lblRemainig", "QUANTITE RESTANTE :");
         textosFrances.put("lblDose", "DOSE :");
         textosFrances.put("lblFrequency", "FRÉQUENCE :");
+        textosFrances.put("lblDuration", "DURÉE :");
         //Ajustes
         textosFrances.put("lblAjustes", "Configurations");
         textosFrances.put("jNotificacionONOFF", "Notifications DESACTIVEES");
