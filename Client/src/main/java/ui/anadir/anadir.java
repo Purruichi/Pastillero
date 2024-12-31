@@ -609,7 +609,6 @@ public class anadir extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtFieldFrequencyFocusLost
 
-<<<<<<< HEAD:src/main/java/anadir/anadir.java
     private void txtFieldDurationFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFieldDurationFocusGained
         // TODO add your handling code here:
         if(txtFieldDuration.getText().equals("Specify the duration of the treatment")){
@@ -627,7 +626,7 @@ public class anadir extends javax.swing.JFrame {
     private void txtFieldDurationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldDurationActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFieldDurationActionPerformed
-=======
+
     private void txtFieldNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFieldNameActionPerformed
@@ -635,7 +634,7 @@ public class anadir extends javax.swing.JFrame {
     private void txtFieldNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFieldNameMouseClicked
         // TODO add your handling code here:a
     }//GEN-LAST:event_txtFieldNameMouseClicked
->>>>>>> origin/Development:Client/src/main/java/ui/anadir/anadir.java
+
     
     private void setImageLabel(JLabel labelN, String root){
         ImageIcon imagen = new ImageIcon(getClass().getResource(root));
