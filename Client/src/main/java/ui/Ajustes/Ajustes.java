@@ -174,7 +174,7 @@ public class Ajustes extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxIdiomas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Español", "English", "Français" }));
+        jComboBoxIdiomas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "English", "Espanol", "Francais" }));
         jComboBoxIdiomas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jComboBoxIdiomas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -338,6 +338,7 @@ public class Ajustes extends javax.swing.JFrame {
 
     private void jComboBoxIdiomasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxIdiomasActionPerformed
         // TODO add your handling code here:  
+        
         
     }//GEN-LAST:event_jComboBoxIdiomasActionPerformed
 
