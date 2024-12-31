@@ -357,7 +357,7 @@ public class anadir extends javax.swing.JFrame {
         pnlGeneralInformation.add(txtFieldDose, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 550, -1));
 
         jLabel1.setBackground(new java.awt.Color(153, 204, 255));
-        jLabel1.setFont(new java.awt.Font("PT Mono", 3, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("PT Mono", 3, 12)); // NOI18N
         jLabel1.setText("GENERAL INFORMATION");
         pnlGeneralInformation.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 220, -1));
 
@@ -396,7 +396,7 @@ public class anadir extends javax.swing.JFrame {
         });
         pnlTimeline.add(txtFieldFrequency, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 550, -1));
 
-        lblTimeline.setFont(new java.awt.Font("PT Mono", 3, 18)); // NOI18N
+        lblTimeline.setFont(new java.awt.Font("PT Mono", 3, 12)); // NOI18N
         lblTimeline.setText("TIMELINE & SCHEDULE");
         pnlTimeline.add(lblTimeline, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 

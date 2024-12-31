@@ -154,7 +154,7 @@ public class Ajustes extends javax.swing.JFrame {
 
         pnlAjustes.add(titleBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 20));
 
-        lblAjustes.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        lblAjustes.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblAjustes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAjustes.setText("Settings");
         pnlAjustes.add(lblAjustes, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 46, 169, 50));
