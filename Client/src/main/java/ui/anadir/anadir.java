@@ -18,7 +18,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 import Idioma.GestorIdiomas;
-import ui.Notificaciones;
 
 /**
  *
@@ -31,7 +30,6 @@ public class anadir extends javax.swing.JFrame {
     private JLabel selectedLabel = null;
     private GestorIdiomas gestorIdiomas = GestorIdiomas.getInstance();  
     public HashMap<String, String> userData = new HashMap<>();
-    private Notificaciones notificaciones;
     
     Client cliente;
     
@@ -152,7 +150,6 @@ public class anadir extends javax.swing.JFrame {
         jLabel1.setText(gestorIdiomas.getTexto("jLabel1"));
         txtFieldFrequency.setText(gestorIdiomas.getTexto("txtFieldFrequency"));
         txtFieldRemaining.setText(gestorIdiomas.getTexto("txtFieldRemaining"));
-        txtFieldDuration.setText(gestorIdiomas.getTexto("txtFieldDuration"));
         lblTimeline.setText(gestorIdiomas.getTexto("lblTimeline"));
         btnAnadir.setText(gestorIdiomas.getTexto("btnAnadir"));
         btnCancelar.setText(gestorIdiomas.getTexto("btnCancelar"));
@@ -191,7 +188,6 @@ public class anadir extends javax.swing.JFrame {
         pnlTimeline = new javax.swing.JPanel();
         txtFieldRemaining = new javax.swing.JTextField();
         txtFieldFrequency = new javax.swing.JTextField();
-        txtFieldDuration = new javax.swing.JTextField();
         lblTimeline = new javax.swing.JLabel();
         btnAnadir = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
@@ -361,7 +357,7 @@ public class anadir extends javax.swing.JFrame {
         pnlGeneralInformation.add(txtFieldDose, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 550, -1));
 
         jLabel1.setBackground(new java.awt.Color(153, 204, 255));
-        jLabel1.setFont(new java.awt.Font("PT Mono", 3, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("PT Mono", 3, 12)); // NOI18N
         jLabel1.setText("GENERAL INFORMATION");
         pnlGeneralInformation.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 220, -1));
 
@@ -383,7 +379,7 @@ public class anadir extends javax.swing.JFrame {
                 txtFieldRemainingFocusLost(evt);
             }
         });
-        pnlTimeline.add(txtFieldRemaining, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 550, -1));
+        pnlTimeline.add(txtFieldRemaining, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 550, -1));
 
         txtFieldFrequency.setFont(new java.awt.Font("PT Mono", 2, 13)); // NOI18N
         txtFieldFrequency.setForeground(new java.awt.Color(153, 153, 153));
@@ -400,30 +396,11 @@ public class anadir extends javax.swing.JFrame {
         });
         pnlTimeline.add(txtFieldFrequency, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 550, -1));
 
-        txtFieldDuration.setFont(new java.awt.Font("PT Mono", 2, 13)); // NOI18N
-        txtFieldDuration.setForeground(new java.awt.Color(153, 153, 153));
-        txtFieldDuration.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtFieldDuration.setPreferredSize(new java.awt.Dimension(279, 23));
-        txtFieldDuration.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtFieldDurationFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtFieldDurationFocusLost(evt);
-            }
-        });
-        txtFieldDuration.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFieldDurationActionPerformed(evt);
-            }
-        });
-        pnlTimeline.add(txtFieldDuration, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 550, -1));
-
-        lblTimeline.setFont(new java.awt.Font("PT Mono", 3, 18)); // NOI18N
+        lblTimeline.setFont(new java.awt.Font("PT Mono", 3, 12)); // NOI18N
         lblTimeline.setText("TIMELINE & SCHEDULE");
         pnlTimeline.add(lblTimeline, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        pnlFondo.add(pnlTimeline, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 720, 140));
+        pnlFondo.add(pnlTimeline, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 720, 120));
 
         btnAnadir.setBackground(new java.awt.Color(0, 255, 51));
         btnAnadir.setFont(new java.awt.Font("PT Mono", 3, 18)); // NOI18N
@@ -467,31 +444,31 @@ public class anadir extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtFieldNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFieldNameFocusGained
-        if(txtFieldName.getText().equals("Specify the name of the medicine")){
+        if(txtFieldName.getText().equals("Ingrese el nombre de la medicina")){
             txtFieldName.setText("");
         }
     }//GEN-LAST:event_txtFieldNameFocusGained
 
     private void txtFieldDoseFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFieldDoseFocusGained
-        if(txtFieldDose.getText().equals("Specify the quantity of the medicine")){
+        if(txtFieldDose.getText().equals("Ingrese la cantidad de la medicina")){
             txtFieldDose.setText("");
         }
     }//GEN-LAST:event_txtFieldDoseFocusGained
 
     private void txtFieldNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFieldNameFocusLost
         if(txtFieldName.getText().equals("")){
-            txtFieldName.setText("Specify the name of the medicine");
+            txtFieldName.setText("Ingrese el nombre de la medicina");
         }
     }//GEN-LAST:event_txtFieldNameFocusLost
 
     private void txtFieldDoseFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFieldDoseFocusLost
         if(txtFieldDose.getText().equals("")){
-            txtFieldDose.setText("Specify the quantity of the medicine");
+            txtFieldDose.setText("Ingrese la cantidad de la medicina");
         }
     }//GEN-LAST:event_txtFieldDoseFocusLost
 
     private void btnAnadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAnadirMouseClicked
-        String[] values = new String[7];
+        String[] values = new String[6];
         HashMap<String, Object> session = new HashMap<>();
         values[0] = userData.get("id");
         
@@ -500,43 +477,9 @@ public class anadir extends javax.swing.JFrame {
         values[3] = txtFieldFrequency.getText();
         values[4] = "2024-10-04 08:00:00.000";
         values[5] = txtFieldDose.getText();
-        values[6] = txtFieldDuration.getText();
         session.put("values", values);
         
         cliente.sentMessage("/addUserMed", session);
-        
-        if (values[3] != null && !values[3].isEmpty()) {
-            try {
-                long frecuenciaEnHoras = Long.parseLong(values[3]);
-                if (frecuenciaEnHoras != 0) {
-                    // Crear y comenzar las notificaciones
-                    if (notificaciones != null) {
-                        notificaciones.detener();
-                    }
-                    notificaciones = new Notificaciones(frecuenciaEnHoras);
-                    notificaciones.iniciar();
-                } else {
-                    // Frecuencia es 0, cancelar cualquier notificación en curso
-                    System.out.println("La frecuencia proporcionada es 0, se cancela cualquier notificación.");
-                    if (notificaciones != null) {
-                        notificaciones.detener();
-                    }
-                }
-            } catch (NumberFormatException e) {
-                // Manejar el caso en que values[3] no sea un número válido
-                System.out.println("La frecuencia ingresada no es válida.");
-                if (notificaciones != null) {
-                    notificaciones.detener();
-                }
-            }
-        } else {
-            // values[3] es null o está vacío, cancelar cualquier notificación en curso
-            System.out.println("Frecuencia no proporcionada, se cancela cualquier notificación.");
-            if (notificaciones != null) {
-                notificaciones.detener();
-            }
-        }
-        
         dispose();
         
         /*boolean check = (boolean)cliente.sentMessage("/addUserMed", session).get("check");
@@ -619,7 +562,7 @@ public class anadir extends javax.swing.JFrame {
 
     private void txtFieldRemainingFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFieldRemainingFocusGained
         // TODO add your handling code here:
-        if(txtFieldRemaining.getText().equals("Specify the remaining of the treatment")){
+        if(txtFieldRemaining.getText().equals("Specify the duration of the treatment")){
             txtFieldRemaining.setText("");
         }
     }//GEN-LAST:event_txtFieldRemainingFocusGained
@@ -627,41 +570,17 @@ public class anadir extends javax.swing.JFrame {
     private void txtFieldRemainingFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFieldRemainingFocusLost
         // TODO add your handling code here:
         if(txtFieldDose.getText().equals("")){
-            txtFieldDose.setText("Specify the remaining of the treatment");
+            txtFieldDose.setText("Specify the duration of the treatment");
         }
     }//GEN-LAST:event_txtFieldRemainingFocusLost
 
     private void txtFieldFrequencyFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFieldFrequencyFocusGained
         // TODO add your handling code here:
-        if(txtFieldFrequency.getText().equals("Specify the frequency of the treatment")){
-            txtFieldFrequency.setText("");
-        }
     }//GEN-LAST:event_txtFieldFrequencyFocusGained
 
     private void txtFieldFrequencyFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFieldFrequencyFocusLost
         // TODO add your handling code here:
-        if(txtFieldFrequency.getText().equals("")){
-            txtFieldFrequency.setText("Specify the frequency of the treatment");
-        }
     }//GEN-LAST:event_txtFieldFrequencyFocusLost
-
-    private void txtFieldDurationFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFieldDurationFocusGained
-        // TODO add your handling code here:
-        if(txtFieldDuration.getText().equals("Specify the duration of the treatment")){
-            txtFieldDuration.setText("");
-        }
-    }//GEN-LAST:event_txtFieldDurationFocusGained
-
-    private void txtFieldDurationFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFieldDurationFocusLost
-        // TODO add your handling code here:
-        if(txtFieldDuration.getText().equals("")){
-            txtFieldDuration.setText("Specify the duration of the treatment");
-        }
-    }//GEN-LAST:event_txtFieldDurationFocusLost
-
-    private void txtFieldDurationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldDurationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFieldDurationActionPerformed
 
     private void txtFieldNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFieldNameActionPerformed
         // TODO add your handling code here:
@@ -670,7 +589,6 @@ public class anadir extends javax.swing.JFrame {
     private void txtFieldNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFieldNameMouseClicked
         // TODO add your handling code here:a
     }//GEN-LAST:event_txtFieldNameMouseClicked
-
     
     private void setImageLabel(JLabel labelN, String root){
         ImageIcon imagen = new ImageIcon(getClass().getResource(root));
@@ -735,7 +653,6 @@ public class anadir extends javax.swing.JFrame {
     private javax.swing.JPanel pnlType;
     private javax.swing.JPanel titleBar;
     private javax.swing.JTextField txtFieldDose;
-    private javax.swing.JTextField txtFieldDuration;
     private javax.swing.JTextField txtFieldFrequency;
     private javax.swing.JTextField txtFieldName;
     private javax.swing.JTextField txtFieldRemaining;

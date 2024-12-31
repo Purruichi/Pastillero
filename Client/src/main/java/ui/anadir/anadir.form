@@ -374,7 +374,7 @@
                   <Color blue="ff" green="cc" red="99" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="PT Mono" size="18" style="3"/>
+                  <Font name="PT Mono" size="12" style="3"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="GENERAL INFORMATION"/>
               </Properties>
@@ -477,7 +477,7 @@
             <Component class="javax.swing.JLabel" name="lblTimeline">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="PT Mono" size="18" style="3"/>
+                  <Font name="PT Mono" size="12" style="3"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="TIMELINE &amp; SCHEDULE"/>
               </Properties>

@@ -273,9 +273,9 @@ public class GestorIdiomas {
     public void cambiarIdioma(String idioma) {
         if ("English".equals(idioma)) {
             textos = textosIngles;
-        } else if ("Español".equals(idioma)) {
+        } else if ("Espanol".equals(idioma)) {
             textos = textosEspaniol;
-        } else if("Français".equals(idioma)){
+        } else if("Francais".equals(idioma)){
             textos = textosFrances;
         }
         notificarCambio();

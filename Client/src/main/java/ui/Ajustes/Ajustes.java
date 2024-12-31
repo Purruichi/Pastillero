@@ -154,7 +154,7 @@ public class Ajustes extends javax.swing.JFrame {
 
         pnlAjustes.add(titleBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 20));
 
-        lblAjustes.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        lblAjustes.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblAjustes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAjustes.setText("Settings");
         pnlAjustes.add(lblAjustes, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 46, 169, 50));
@@ -174,7 +174,7 @@ public class Ajustes extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxIdiomas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Español", "English", "Français" }));
+        jComboBoxIdiomas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "English", "Espanol", "Francais" }));
         jComboBoxIdiomas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jComboBoxIdiomas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -338,6 +338,7 @@ public class Ajustes extends javax.swing.JFrame {
 
     private void jComboBoxIdiomasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxIdiomasActionPerformed
         // TODO add your handling code here:  
+        
         
     }//GEN-LAST:event_jComboBoxIdiomasActionPerformed
 
